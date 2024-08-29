@@ -19,7 +19,8 @@ func ConvertIPv4SttringToUint32(ipv4 string) uint32 {
 }
 
 func GetTotalUniqueIPv4Addresses(addresses []string) uint32 {
-	bitSet := make([]bool, MaxUint32, MaxUint32)
+	capacity := uint64(MaxUint32) + 1
+	bitSet := make([]bool, capacity, capacity)
 	var result uint32 = 0
 	for _, address := range addresses {
 		n := ConvertIPv4SttringToUint32(address)
